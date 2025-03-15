@@ -1,59 +1,30 @@
-# KahootChallenge
+# Kahoot Challenge
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.7.
+The project has been developed folowing the SOLID principles, ensuring better separation of concerns. The `country.service` is responsible for managing data fetching, the `table.component` component handles data display, and the `country.model` model controls the data structure. 
 
-## Development server
+ As a result, the project is easier to extend, maintain and test.
 
-To start a local development server, run:
 
-```bash
-ng serve
-```
+## Installation and Setup Instructions
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Installation:
 
-## Code scaffolding
+`npm install`  
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+To Run Test Suite:  
 
-```bash
-ng generate component component-name
-```
+`npm run test`  
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+To Start Server:
 
-```bash
-ng generate --help
-```
+`npm run dev`  
 
-## Building
+To Visit App:
 
-To build the project run:
+`http://localhost:4200/` 
 
-```bash
-ng build
-```
+## Technologies Used
+- Angular
+- TypeScript
+- SCSS
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

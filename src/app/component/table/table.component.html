@@ -1,0 +1,44 @@
+<div class="container">
+    <h1>Countries List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Capital</th>
+          <th>Currency</th>
+          <th>Demonym</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (country of countries(); track country.name.common) {
+          <tr (click)="toggleCountry.emit(country)" [class.selected]="expandedCountry()?.name?.common === country.name.common">
+            <td>{{ country.name.common }}</td>
+            <td>{{ country.capital?.join(', ') || 'N/A' }}</td>
+            <td>{{ getCurrency(country) }}</td>
+            <td>{{ getDemonym(country) }}</td>
+            <td class="expand-icon">{{ expandedCountry()?.name?.common === country.name.common ? '▲' : '▼' }}</td>
+          </tr>
+          @if (expandedCountry()?.name?.common === country.name.common) {
+            <tr class="details-row" (click)="toggleCountry.emit(country)">
+              <td colspan="5">
+                  <div class="details">
+                    <img [src]="expandedCountry()?.flags?.png" alt="{{ expandedCountry()?.name?.common }}" />
+                    <div>
+                      <p><b>Population: </b>{{ expandedCountry()?.population }}</p>
+                      <p><b>Region: </b>{{ expandedCountry()?.region }}</p>
+                      <p><b>Time Zones: </b>{{ expandedCountry()?.timezones?.join(', ') }}</p>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+    <div class="pagination">
+      <button (click)="prevPage.emit()" [disabled]="currentPage() === 1">Previous</button>
+      <p>Page {{ currentPage() }} of {{ totalPages() }}</p>
+      <button (click)="nextPage.emit()" [disabled]="currentPage() === totalPages()">Next</button>
+    </div>
+  </div>
